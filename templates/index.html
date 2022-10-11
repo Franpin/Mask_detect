@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>-安配控-</title>
+    <!-- 引入一个小图标 -->
+    <link rel="icon" href="../static/images/mask.ico">
+    <link rel="stylesheet" href="../static/lib/jquery.fullPage.css">
+    <link rel="stylesheet" href="../static/lib/animate.css">
+    <link rel="stylesheet" href="../static/css/index.css">
+    <!-- 导入开发环境版本Vue，包含了有帮助的命令行警告 -->
+    <script src="../static/lib/vue.js"></script>
+
+    <script src="../static/lib/axios.min.js"></script>
+    <script src="../static/lib/jquery.min.js"></script>
+    <script src="../static/lib/flexible.js"></script>
+    <script src="../static/lib/echarts.min.js"></script>
+    <script src="../static/lib/jquery.fullPage.js"></script>
+    
+</head>
+<body>
+
+    <!-- 导航栏 -->
+    <div class="navBox">
+        <ul class="nav">
+            <li data-menuanchor="firstPage" class="active"><a href="#firstPage">首页</a></li>
+            <li data-menuanchor="secondPage"><a href="#secondPage">项目简介</a></li>
+            <li data-menuanchor="thirdPage"><a href="#thirdPage">数据展示</a></li>
+            <li data-menuanchor="fourthPage"><a href="#fourthPage">实时检测</a></li>
+            <li data-menuanchor="fifthPage"><a href="#fifthPage">上传检测</a></li>
+        </ul>
+    </div>
+
+    <!-- 主页 -->
+    <div id="mainBox">
+        <!-- 第一屏 首页 -->
+        <div class="section active" id="one">
+            <div class="body">
+                <div class="column animated zoomInUp">
+                    <div class="titleBox">
+                        <span class="title">安配控<br>----基于YOLOv4深度神经网络的口罩检测分析</span>
+                    </div>
+                    <a href="#secondPage" class="start">开始体验</a>
+                </div>
+                <div class="column animated fadeInDown"></div>
+            </div>
+        </div>
+        <!-- 第二屏 项目简介 -->
+        <div class="section" id="two">
+            <div class="introBox">
+                <div class="title">
+                    <div class="titleText">项目简介</div>
+                    <div class="hfutLogo"></div>
+                </div>
+                <div class="intro">
+                    <div class="proIntro">
+                        <div class="proTitle">项目简介</div>
+                        <div class="introText">
+                            为了全国的疫情防控工作，同时也为了公共卫生安全部分更方便快捷的进行安全监管，来规范人员的行为、保障人员的安全，我们采用基于Yolov4的深度学习目标检测技术，通过安全现场的摄像头，实时获取并检测人员是否佩戴口罩，提醒未佩戴口罩的人员，同时对检测后的数据进行统计、分析。本作品可以应用于机场、车站、医院、商场等公共区域，对摄像头捕捉到的画面进行实时检测（正确率可达95%以上）,并对口罩佩戴情况进行数据分析与可视化反馈。    
+                        </div>
+                    </div>
+                    <div class="teamMembers">
+                        <div class="teamTitle">团队成员</div>
+                        <div class="members">
+                            <span>王梓嘉</span>
+                            <span>付炎平</span>
+                            <span>谢昊</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- 第三屏 数据展示 -->
+        <div class="section" id="three">
+            <!-- 头部信息 -->
+            <div class="header">
+                <h1></h1>
+                <div class="showTime"></div>
+            </div>
+            <!-- 图表 -->
+            <div class="chartPanel line">
+                <h2>口罩佩戴人数统计
+                    <a href="javascript:;">3月</a>
+                    <a href="javascript:;">4月</a>
+                </h2>
+                <div class="chart"></div>
+            </div>
+        </div>
+        <!-- 第四屏 图片展示 -->
+        <div class="section" id="four">
+
+            <div class="videoWrapper">
+                <div class="videoBg">
+                    <img src="{{ url_for('video_feed') }}" class="showImg">
+                    <div class="cover"></div>
+                    <div class="topDot"></div>
+                    <div class="botDot"></div>
+                </div>
+            </div>
+			
+			<a href="pages/detailImageList" class="gotoList">显示所有图片</a>
+            
+        </div>
+        <!-- 第五屏 上传检测 -->
+        <div class="section" id="five">
+            <div class="body">
+                <img :src="uploadImgBg" class="uploadImg" ref="data">
+                <img :src="waitingImgBg" class="waitingImg" ref="result">
+            </div>
+            <a href="javascript:;" class="file">选择文件
+                <input type="file" id="file" required>
+            </a>
+            <a href="javascript:;" class="upload" ref="uploadBtn">显示结果</a>
+        </div>
+    </div>
+
+</body>
+
+    <script src="../static/js/index.js"></script>
+</html>

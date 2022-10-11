@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>详细图片</title>
+    <script src="../../../static/lib/axios.min.js"></script>
+    <script src="../../../static/lib/vue.js"></script>
+    <link rel="stylesheet" href="../../../static/css/detailImageList.css">
+    <link rel="stylesheet" href="../../../static/lib/animate.css">
+</head>
+<body>
+
+    <div class="listWrapper">
+      <div class="row" v-for="(itemRow,indexRow) in rows">
+        <img 
+        class="detailImageItem"
+        v-if="(rowImgNum * indexRow + indexCol) < list.length"
+        v-for="(itemImg,indexCol) in rowImgNum"
+        :src="list[rowImgNum * indexRow + indexCol].url">
+      </div>
+    </div>
+    
+    <script src="../../../static/js/detailImageList.js"></script>
+</body>
+</html>

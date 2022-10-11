@@ -1,0 +1,432 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+@font-face{
+	font-family: "electronicFont";
+	src: url(../font/DS-DIGIT.TTF);
+}
+@font-face{
+	font-family: "msyh";
+	src: url(../font/msyh.ttc);
+}
+@font-face{
+	font-family: "handWriting";
+	src: url(../font/FZJLJW.TTF);
+}
+
+
+// 导航栏样式
+.navBox{
+    width: 100%;
+    height: 0.8rem;
+    position: absolute;
+    z-index: 1;
+    ul{
+        display: flex;
+        position: absolute;
+        top: .6875rem;
+        right: 1.25rem;
+        transition: 0.8s all ease;
+        li{
+            list-style: none;
+            &.active{
+                a{
+                    color: #FFFF00;
+                }
+            }
+            a{
+                text-decoration: none;
+                color: #ffffff;
+                font-size: .35rem;
+                margin: 0 .4375rem;
+                cursor: pointer;
+                transition: 0.8s all ease;
+                padding: 8px;
+                &:hover{
+                    color: #000;
+                    background-color: #e6e6e6;
+                }
+            }
+        }
+        &.new{
+            top: .25rem;
+            right: 3rem;
+            a{
+                margin: 0 1rem;
+            }
+        }
+    }
+}
+
+#mainBox{
+    position: relative;
+	// min-width: 1024px;
+	// max-width: 1920px;
+    // 第一屏样式
+    #one{
+        background: url(../images/firstpageBg.png)
+        no-repeat;
+        background-size: 24rem;
+        position: relative;
+        .body{
+            width: 16.625rem;
+            // background: #bfa;
+            height: 8.5rem;
+            position: absolute;
+            bottom: 0;
+            left: 3.6875rem;
+            display: flex;
+            .column{
+                &:nth-child(1){
+                    flex: 3;
+                    // background-color: aqua;
+                    .titleBox{
+                        position: relative;
+                        height: 4rem;
+                        width: 8.125rem;
+                        background: url(../images/firstpageTextBg.png)
+                        no-repeat;
+                        background-size: contain;
+                        span{
+                            font-family: 'msyh';
+                            position: absolute;
+                            top: .375rem;
+                            left: .75rem;
+                            font-size: .4375rem;
+                            color: black;
+                        }
+                    }
+                    .start{
+                        text-decoration: none;
+                        color: #fffafa;
+                        display: block;
+                        width: 3.625rem;
+                        height: .9375rem;
+                        background-color: #0073E3;
+                        text-align: center;
+                        line-height: .9375rem;
+                        border-radius: 50px;
+                        font-size: .325rem;
+                        letter-spacing: .0625rem;
+                        margin-top: 1.375rem;
+                        margin-left: 1.9375rem;
+                        transition: 0.2s all ease;
+                        &:hover{
+                            transform: translate(-5px,-5px);
+                            box-shadow: 5px 5px 5px #000;
+                        }
+                    }
+                }
+                &:nth-child(2){
+                    flex: 2;
+                    // background-color: aquamarine;
+                    background: url(../images/firstpageDoc.png)
+                    no-repeat;
+                    background-size: contain;
+                    background-position: right;
+                }
+            }
+        }
+    }
+
+    // 第二屏样式
+    #two{
+        background: url(../images/secondpageBg.png)
+        no-repeat;
+        background-size: 24rem 12rem;
+        position: relative;
+        .introBox{
+            height: 9.125rem;
+            width: 9.75rem;
+            // background-color: aqua;
+            position: absolute;
+            right: 3.375rem;
+            bottom: 1rem;
+            .title{
+                display: flex;
+                justify-content: center;
+                .titleText{
+                    color: #fff;
+                    font-size: .625rem;
+                    font-style: oblique;
+                    letter-spacing: 3px;
+                    margin-top: .875rem;
+                }
+                .hfutLogo{
+                    background: url(../images/hfut.png);
+                    width: 2.1875rem;
+                    height: 2.1875rem;
+                    background-size: contain;
+                    margin-left: 50px;
+                }
+            }
+            .intro{
+                width: 9.75rem;
+                // height: 6.25rem;
+                // background: url(../images/intro.png)
+                // no-repeat;
+                padding: 20px 15px;
+                background-size: contain;
+                margin-top: .4375rem;
+                border: 5px solid #41719c;
+                border-radius: 25px;
+                div{
+                    margin-bottom: .15625rem;
+                    font-size: .28125rem;
+                }
+                .proIntro{
+                    .proTitle{
+                        color: #7ba2e7;
+                    }
+                    .introText{
+                        text-indent: 2em;
+                        line-height: .46875rem;
+                    }
+                }
+                .teamMembers{
+                    .teamTitle{
+                        color: #f4b1c1;
+                    }
+                    .members{
+                        span{
+                            margin-right: 15px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // 第三屏样式
+    #three{
+        position: relative;
+        overflow: hidden;
+        // 放两张背景图
+        &::before{
+            content: "";
+            position: absolute;
+            height: 12rem;
+            width: 9rem;
+            background: url(../images/thirdpageMask2.jpg)
+            no-repeat;
+            background-size: cover;
+            z-index: 0;
+        }
+        &::after{
+            content: "";
+            position: absolute;
+            top: 0;
+            right: 0;
+            height: 12rem;
+            width: 15rem;
+            background: url(../images/thirdpageData.jpg)
+            no-repeat;
+            background-size: contain;
+            z-index: 0;
+        }
+        // 头部信息
+        .header{
+            height: 1.25rem;
+            // background: #000;
+            z-index: 1;
+            position: relative;
+            h1{
+                font-size: .475rem;
+                color: rgba(255,255,255,0.9);
+                text-align: center;
+                line-height: 1rem;
+            }
+            .showTime{
+				font-family: electronicFont;
+                position: absolute;
+                right: .375rem;
+                top: .625rem;
+                color: rgba(255,255,255,0.7);
+                font-size: 0.25rem;
+            }
+        }
+        // 图表样式
+        .chartPanel{
+            height: 6rem;
+            width: 10.5rem;
+            border: 1px solid rgba(25, 186, 139, 0.17);
+            margin-top: .625rem;
+            margin-left: 1.25rem;
+            position: relative;
+            z-index: 1;
+            h2{
+                height: 1rem;
+                color: #fff;
+                line-height: 1rem;
+                font-size: 0.4rem;
+                a{
+                    color: #fff;
+                    text-decoration: none;
+                    margin: 0 0.125rem;
+                    font-size: .25rem;
+                }
+            }
+            .chart{
+                height: 5rem;
+                // background-color: #bfa;
+                padding-bottom: 20px;
+            }
+        }
+    }
+
+    // 第四屏样式
+    #four{
+        position: relative;
+        background-image: linear-gradient(to bottom,#bde2ee,#bde2ee,#f6eff6);
+        .videoWrapper{
+            position: absolute;
+            left: 50%;
+            .videoBg{
+                position: absolute;
+                left: 0;
+                top: .75rem;
+                transform: translate(-50%);
+                height: 10rem;
+                width: 8.675rem;
+                background-color: #f5f6f8;
+                z-index: 1;
+                border-radius: 5%;
+                border: #d1d2d4 4px solid;
+                box-shadow: 2px 3px 4px #000;
+                .topDot{
+                    position: absolute;
+                    background-color: #000;
+                    height: .15rem;
+                    width: .15rem;
+                    border-radius: 50%;
+                    top: .18rem;
+                    left: 50%;
+                    transform: translate(-50%);
+                }
+                .botDot{
+                    position: absolute;
+                    background-color: #000;
+                    height: .4125rem;
+                    width: .4125rem;
+                    background-color: #f5f6f8;
+                    border: 1px #4c4c4e solid;
+                    border-radius: 50%;
+                    left: 50%;
+                    bottom: 2px;
+                    transform: translate(-50%);
+                }
+                .cover{
+                    position: absolute;
+                    left: 5%;
+                    top: 5%;
+                    height: 90%;
+                    width: 90%;
+                    background-color: #000;
+                    opacity: 1;
+                    transition: 1s opacity linear;
+                }
+                .showImg{
+                    border: solid 4px black;
+                    position: absolute;
+                    left: 5%;
+                    top: 5%;
+                    height: 90%;
+                    width: 90%;
+                }
+            }
+        }
+		.gotoList{
+			position: absolute;
+			text-decoration: none;
+			right: 3.15625rem;
+			top: 5.3125rem;
+			color: #ffffff;
+			background-color: black;
+			border-radius: 5px;
+			padding: 10px 15px;
+		}
+    }
+
+    // 第五屏样式
+    #five{
+        background: url(../images/fifthpageBg.png);
+        background-size: cover;
+        position: relative;
+        .body{
+            width: 14.375rem;
+            height: 3.25rem;
+            position: absolute;
+            left: 4.8125rem;
+            top: 2.875rem;
+            // background-color: aqua;
+            display: flex;
+            justify-content: space-between;
+            .uploadImg{
+                width: 4.75rem;
+                height: 3.125rem;
+            }
+            .waitingImg{
+                width: 4.75rem;
+                height: 3.125rem;
+            }
+        }
+        .file{
+            display: block;
+            position: absolute;
+            top: 7.875rem;
+            left: 9.375rem;
+            // left: 50%;
+            // transform: translate(-50% ,-50%);
+            width: 1.375rem;
+            height: .4375rem;
+            background-color: #D0EEFF;
+            color: #1E88C7;
+            text-decoration: none;
+            text-align: center;
+            line-height: .4375rem;
+            border: 1px solid #99D3F5;
+            border-radius: 4px;
+            font-size: .25rem;
+            &:hover{
+                background-color: #AADFFD;
+                border-color: #78C3F3;
+                color: #004974;
+            }
+            input{
+                width: 1.375rem;
+                height: .4375rem;
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                opacity: 0;
+            }
+        }
+        .upload{
+            display: block;
+            position: absolute;
+            top: 7.875rem;
+            right: 9.375rem;
+            // left: 50%;
+            // transform: translate(-50% ,-50%);
+            width: 1.375rem;
+            height: .4375rem;
+            background-color: #D0EEFF;
+            color: #1E88C7;
+            text-decoration: none;
+            text-align: center;
+            line-height: .4375rem;
+            border: 1px solid #99D3F5;
+            border-radius: 4px;
+            font-size: .25rem;
+            &:hover{
+                background-color: #AADFFD;
+                border-color: #78C3F3;
+                color: #004974;
+            }
+        }
+    }
+}
+
